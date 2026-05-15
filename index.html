@@ -337,6 +337,40 @@ p:last-child { margin-bottom: 0; }
   min-height: 200px;
 }
 
+/* ── CAROUSEL ── */
+.carousel { position: relative; overflow: hidden; aspect-ratio: 4/3; background: var(--sand); }
+.flow-card .carousel { aspect-ratio: 16/9; border-radius: 10px; margin-bottom: 20px; }
+.carousel-track { display: flex; height: 100%; transition: transform 0.38s ease; }
+.carousel-track img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; display: block; }
+.car-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.88); border: none; border-radius: 50%;
+  width: 30px; height: 30px; cursor: pointer; font-size: 16px; line-height: 1;
+  color: var(--brown-dark); box-shadow: 0 1px 6px rgba(0,0,0,0.15);
+  display: flex; align-items: center; justify-content: center;
+}
+.car-btn.prev { left: 8px; }
+.car-btn.next { right: 8px; }
+.car-btn:hover { background: #fff; }
+.car-dots { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
+.dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.2s; }
+.dot.active { background: #fff; }
+
+/* ── GALLERY REEL ── */
+.gallery-reel {
+  display: flex; gap: 10px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 24px 24px 12px; scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.gallery-reel::-webkit-scrollbar { display: none; }
+.gallery-reel img {
+  scroll-snap-align: start; height: 240px; width: auto;
+  border-radius: 12px; object-fit: cover; flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(74,55,40,0.1);
+}
+@media (max-width: 680px) { .gallery-reel img { height: 180px; } }
+
 /* ── PRICING ── */
 .pricing-section { background: var(--sand); }
 .price-table-wrap { overflow-x: auto; margin: 32px 0; }
@@ -722,24 +756,44 @@ footer .script {
   <div class="container">
     <div class="rooms">
       <div class="room-card">
-        <img src="img/room-valley.jpg" alt="縱谷套房" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="room-photo" style="display:none;">📷 縱谷套房</div>
+        <div class="carousel">
+          <div class="carousel-track">
+            <img src="img/room-valley.jpg" alt="縱谷套房">
+          </div>
+          <button class="car-btn prev">‹</button><button class="car-btn next">›</button>
+          <div class="car-dots"><span class="dot active"></span></div>
+        </div>
         <div class="room-info">
           <div class="room-name">｜縱谷｜ 雙人套房</div>
           <p class="room-desc">一大床・獨立衛浴・書桌椅・休閒椅<br>黃綠色調，呼應花東縱谷的青翠與寧靜<br>浴室保留懷舊馬賽克浴缸 🛁</p>
         </div>
       </div>
       <div class="room-card">
-        <img src="img/room-coast.jpg" alt="海岸雅房" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="room-photo" style="display:none;">📷 海岸雅房</div>
+        <div class="carousel">
+          <div class="carousel-track">
+            <img src="img/room-coast.jpg" alt="海岸背包 — 雙床">
+          </div>
+          <button class="car-btn prev">‹</button><button class="car-btn next">›</button>
+          <div class="car-dots"><span class="dot active"></span></div>
+        </div>
         <div class="room-info">
           <div class="room-name">｜海岸｜ 雙床雅房</div>
           <p class="room-desc">兩張單人床（可加至4床）・共用衛浴・書桌椅・閱讀燈<br>藍白色系，呼應東海岸的清新與開闊</p>
         </div>
       </div>
       <div class="room-card">
-        <img src="img/room-common.jpg" alt="公共空間" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="room-photo" style="display:none;">📷 廚房・公共空間</div>
+        <div class="carousel">
+          <div class="carousel-track">
+            <img src="img/space-work.jpg" alt="餐廳辦公空間">
+            <img src="img/space-work2.jpg" alt="採光辦公實景">
+            <img src="img/space-kitchen2.jpg" alt="廚房全景">
+            <img src="img/space-movie.jpg" alt="客廳 & 鋼琴">
+          </div>
+          <button class="car-btn prev">‹</button><button class="car-btn next">›</button>
+          <div class="car-dots">
+            <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          </div>
+        </div>
         <div class="room-info">
           <div class="room-name">公共空間</div>
           <p class="room-desc">客廳・廚房（全套設備）・餐廳・150 坪庭院<br>家庭劇院・黑膠唱片・鞦韆・草地・烤肉架</p>
@@ -884,14 +938,28 @@ footer .script {
   <div class="container-wide">
     <div class="flow-grid">
       <div class="flow-card">
-        <img class="flow-photo" src="img/flow-festival.jpg" alt="台東慢食節">
+        <div class="carousel">
+          <div class="carousel-track">
+            <img src="img/flow-festival.jpg" alt="台東慢食節">
+          </div>
+          <button class="car-btn prev">‹</button><button class="car-btn next">›</button>
+          <div class="car-dots"><span class="dot active"></span></div>
+        </div>
         <div class="flow-date">07/04–05</div>
         <h3>🎈 週末慶典</h3>
         <p>一起去台東慢食節玩、把胃填飽！緩緩把心與行李安放在這棟歷史建築，準備迎接工作週 🌿</p>
         <p style="font-size:13.5px;">（去年活動超有感，今年擴編團隊更精彩——妳來就對了！）</p>
       </div>
       <div class="flow-card">
-        <img class="flow-photo" src="img/flow-work.jpg" alt="在官邸工作">
+        <div class="carousel">
+          <div class="carousel-track">
+            <img src="img/space-work2.jpg" alt="在官邸辦公">
+            <img src="img/flow-work-lunch.jpg" alt="共煮午餐">
+            <img src="img/flow-work-bike.jpg" alt="騎車去海邊">
+          </div>
+          <button class="car-btn prev">‹</button><button class="car-btn next">›</button>
+          <div class="car-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
         <div class="flow-date">07/06–10</div>
         <h3>💻 工作週</h3>
         <p>早上泡咖啡、在庭院做瑜珈，在森林環繞的官邸裡好好辦公 ☀️</p>
@@ -899,7 +967,15 @@ footer .script {
         <p style="font-size:13.5px;">🌙 下班生活：騎車去海邊溜達、上瑜珈課，或窩在客廳用投影幕看場電影 🎬 也邀請各方高手夥伴自由發起～～</p>
       </div>
       <div class="flow-card">
-        <img class="flow-photo" src="img/flow-travel.jpg" alt="台東旅行玩耍">
+        <div class="carousel">
+          <div class="carousel-track">
+            <img src="img/space-bikes.jpg" alt="院子的單車">
+            <img src="img/flow-travel-icecream2.jpg" alt="山林冰淇淋">
+            <img src="img/hero-5.jpg" alt="台東海岸">
+          </div>
+          <button class="car-btn prev">‹</button><button class="car-btn next">›</button>
+          <div class="car-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+        </div>
         <div class="flow-date">07/11–12</div>
         <h3>🚲 旅行玩耍</h3>
         <p>活水湖跟魚游泳、找充滿故事的無菜單早餐阿姨聊天，或隨心晃到附近城市 🌊</p>
@@ -909,6 +985,30 @@ footer .script {
     </div>
   </div>
 </section>
+
+<!-- GALLERY: 生活實錄 -->
+<section style="padding:72px 0 56px; background:var(--sand);">
+  <div class="container">
+    <div class="section-label">生活實錄</div>
+    <h2>當我們都在這裡的時候</h2>
+    <p style="color:var(--brown-mid);">不需要安排，它自然就發生了。</p>
+  </div>
+  <div class="gallery-reel">
+    <img src="img/space-banner.jpg" alt="夜晚庭院燈串">
+    <img src="img/space-outside.jpg" alt="東糖官邸大門">
+    <img src="img/space-work2.jpg" alt="在官邸辦公">
+    <img src="img/flow-work-lunch.jpg" alt="共煮午餐">
+    <img src="img/flow-work-dinner.jpg" alt="台東鴨肉飯">
+    <img src="img/flow-travel-brunch3.jpg" alt="無菜單早午餐">
+    <img src="img/flow-travel-brunch4.jpg" alt="自製麵包堡">
+    <img src="img/flow-travel-friendscafe.jpg" alt="台東特色咖啡館">
+    <img src="img/flow-travel-icecream2.jpg" alt="山林冰淇淋">
+    <img src="img/hero-5.jpg" alt="台東海岸">
+    <img src="img/space-bikes.jpg" alt="院子的單車">
+  </div>
+</section>
+
+<hr class="divider">
 
 <!-- PRICING -->
 <section class="pricing-section" id="pricing">
@@ -1244,6 +1344,36 @@ footer .script {
 
 <script>
 (function(){
+  // Card carousels (room + flow)
+  document.querySelectorAll('.carousel').forEach(function(c) {
+    var track = c.querySelector('.carousel-track');
+    var slides = track.querySelectorAll('img');
+    var dots = c.querySelectorAll('.dot');
+    var idx = 0;
+    // Hide controls if single slide
+    if(slides.length <= 1) {
+      c.querySelectorAll('.car-btn, .car-dots').forEach(function(el){ el.style.display='none'; });
+      return;
+    }
+    function go(n) {
+      idx = (n + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+      dots.forEach(function(d, i){ d.classList.toggle('active', i === idx); });
+    }
+    var prevBtn = c.querySelector('.car-btn.prev');
+    var nextBtn = c.querySelector('.car-btn.next');
+    if(prevBtn) prevBtn.addEventListener('click', function(){ go(idx - 1); });
+    if(nextBtn) nextBtn.addEventListener('click', function(){ go(idx + 1); });
+    dots.forEach(function(d, i){ d.addEventListener('click', function(){ go(i); }); });
+    // Swipe
+    var startX = 0;
+    track.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', function(e){
+      var diff = startX - e.changedTouches[0].clientX;
+      if(Math.abs(diff) > 40) go(diff > 0 ? idx + 1 : idx - 1);
+    });
+  });
+
   // Hero carousel
   const slides = document.querySelectorAll('#heroCarousel .hero-slide');
   if(slides.length) {
