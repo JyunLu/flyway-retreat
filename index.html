@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>換個地方，選生活 | 台東・東糖官邸 Retreat 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange:      #E8845A;
+  --green:       #7A9E7E;
+  --cream:       #FDF6F0;
+  --sand:        #F0E3D2;
+  --tint-orange: #FAD4C0;
+  --tint-green:  #C8DBC9;
+  --brown-dark:  #4A3728;
+  --brown-mid:   #8B7355;
+  --brown-light: #D9C5B2;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--brown-dark);
+  line-height: 1.75;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 80px 24px 72px;
+  text-align: center;
+  overflow: hidden;
+  background: #3d2f23;
+}
+.hero-carousel { position: absolute; inset: 0; }
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.hero-slide.active { opacity: 1; }
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(40,28,18,0.62) 0%, rgba(40,28,18,0.18) 55%, transparent 100%);
+  z-index: 1;
+}
+.hero-content { position: relative; z-index: 3; }
+.hero-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 20px;
+  display: block;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 300;
+  font-size: clamp(30px, 5vw, 54px);
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: 0.18em;
+  margin-bottom: 12px;
+}
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.hero-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  color: rgba(255,255,255,0.9);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── QUICK STATS ── */
+.stats-bar {
+  background: var(--brown-dark);
+  color: var(--cream);
+  padding: 28px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--brown-light);
+  margin-bottom: 4px;
+}
+.stat-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--cream);
+}
+
+/* ── LAYOUT ── */
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.container-wide {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+section { padding: 80px 0; }
+
+.section-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+}
+h2 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-weight: 400;
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--brown-dark);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+h3 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--brown-dark);
+  margin-bottom: 12px;
+}
+p { color: var(--brown-mid); margin-bottom: 16px; font-size: 15.5px; }
+p:last-child { margin-bottom: 0; }
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--brown-light);
+  margin: 0;
+}
+
+/* ── PHOTO PLACEHOLDER ── */
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--sand);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--brown-mid);
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  margin: 32px 0;
+  border: 1.5px dashed var(--brown-light);
+}
+.photo-placeholder .icon { font-size: 28px; opacity: 0.5; }
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 32px 0;
+}
+.photo-grid .photo-placeholder { aspect-ratio: 1; margin: 0; font-size: 11px; }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  border-left: 3px solid var(--orange);
+  padding: 20px 28px;
+  margin: 36px 0;
+  background: var(--sand);
+  border-radius: 0 10px 10px 0;
+}
+.quote-block p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 21px;
+  color: var(--brown-dark);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── CALLOUT ── */
+.callout {
+  padding: 24px 28px;
+  border-radius: 12px;
+  margin: 24px 0;
+}
+.callout-orange { background: var(--tint-orange); }
+.callout-green  { background: var(--tint-green); }
+.callout-sand   { background: var(--sand); }
+.callout-title {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: var(--brown-dark);
+}
+.callout ul { padding-left: 18px; }
+.callout li { color: var(--brown-mid); font-size: 15px; margin-bottom: 6px; }
+
+/* ── ROOMS ── */
+.rooms { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 32px 0; }
+.room-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(74,55,40,0.07);
+}
+.room-photo {
+  aspect-ratio: 4/3;
+  background: var(--sand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--brown-mid);
+  border-bottom: 1px solid var(--brown-light);
+}
+.room-info { padding: 16px; }
+.room-name { font-weight: 500; font-size: 14px; color: var(--brown-dark); margin-bottom: 4px; }
+.room-desc { font-size: 13px; color: var(--brown-mid); margin: 0; line-height: 1.5; }
+
+/* ── APPEAL CARDS (三種體驗) ── */
+.appeal-section { background: var(--sand); }
+.appeal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 40px; }
+.appeal-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px 28px;
+  box-shadow: 0 2px 16px rgba(74,55,40,0.06);
+  position: relative;
+}
+.appeal-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.appeal-card h3 { font-size: 22px; margin-bottom: 12px; }
+.appeal-card p { font-size: 14px; }
+.appeal-card .plan-hint {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--brown-mid);
+  background: var(--sand);
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+/* ── CO-CREATE (共創時光) ── */
+.cocreate-section { background: var(--cream); }
+.time-slots { margin-top: 36px; display: flex; flex-direction: column; gap: 20px; }
+.time-slot { display: flex; gap: 20px; align-items: flex-start; }
+.time-label {
+  flex-shrink: 0;
+  width: 72px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 500;
+  padding-top: 2px;
+}
+.time-activities { display: flex; flex-wrap: wrap; gap: 8px; }
+.activity-chip {
+  background: var(--sand);
+  color: var(--brown-dark);
+  font-size: 13.5px;
+  padding: 6px 14px;
+  border-radius: 50px;
+  line-height: 1.4;
+}
+.cocreate-note {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--tint-green);
+  border-radius: 12px;
+  font-size: 14.5px;
+  color: var(--brown-dark);
+}
+
+/* ── DAILY FLOW ── */
+.flow-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 40px; align-items: start; }
+.flow-card { }
+.flow-date {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+.flow-card h3 { font-size: 20px; margin-bottom: 12px; }
+.flow-card p { font-size: 14.5px; }
+.flow-photo {
+  width: 100%;
+  background: var(--sand);
+  border-radius: 10px;
+  display: block;
+  object-fit: cover;
+  margin-bottom: 20px;
+  max-height: 520px;
+  min-height: 200px;
+}
+
+/* ── PRICING ── */
+.pricing-section { background: var(--sand); }
+.price-table-wrap { overflow-x: auto; margin: 32px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(74,55,40,0.07);
+  min-width: 560px;
+}
+thead tr { background: var(--brown-dark); }
+th {
+  padding: 16px 20px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--brown-light);
+}
+td {
+  padding: 16px 20px;
+  font-size: 15px;
+  color: var(--brown-mid);
+  border-bottom: 1px solid var(--sand);
+}
+td:first-child { color: var(--brown-dark); font-weight: 500; }
+td.price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--brown-dark);
+}
+td.price-highlight {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--orange);
+  font-weight: 600;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--cream); }
+
+/* ── SUBSIDY BADGE ── */
+.subsidy-box {
+  background: #fff;
+  border: 1.5px solid var(--orange);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 24px 0;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.subsidy-icon { font-size: 32px; flex-shrink: 0; margin-top: 2px; }
+.subsidy-text h4 { font-size: 15px; font-weight: 500; color: var(--brown-dark); margin-bottom: 8px; }
+.subsidy-text p { font-size: 14px; margin-bottom: 6px; }
+
+/* ── AVAILABILITY ── */
+.seat-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--brown-light);
+}
+.seat-row:last-child { border-bottom: none; }
+.seat-name { font-size: 15px; color: var(--brown-dark); }
+.seat-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+}
+.badge-open    { background: var(--tint-green); color: #3d6b40; }
+.badge-limited { background: var(--tint-orange); color: #8b4a20; }
+.badge-full    { background: var(--sand); color: var(--brown-mid); }
+
+/* ── PERSONAS ── */
+.persona-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 40px; }
+.persona-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 16px rgba(74,55,40,0.06);
+  text-align: center;
+}
+.persona-emoji { font-size: 36px; margin-bottom: 16px; display: block; }
+.persona-card h3 { font-size: 20px; margin-bottom: 8px; }
+.persona-card p { font-size: 14px; }
+
+/* ── CTA ── */
+.cta-section {
+  background: var(--brown-dark);
+  padding: 100px 28px;
+  text-align: center;
+}
+.cta-section h2 { color: var(--cream); }
+.cta-section p { color: var(--brown-light); }
+.cta-eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+}
+.steps {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin: 48px 0;
+  flex-wrap: wrap;
+}
+.step { text-align: center; max-width: 220px; }
+.step-num {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+}
+.step p { color: var(--brown-light); font-size: 14.5px; }
+.btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--orange);
+  color: #fff;
+  border-radius: 50px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.88; }
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: var(--cream);
+  margin-left: 12px;
+}
+
+/* ── HOUSE RULES ── */
+.rules-section { background: var(--cream); }
+details {
+  border-bottom: 1px solid var(--brown-light);
+}
+summary {
+  padding: 20px 0;
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--brown-dark);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+summary::after { content: '+'; color: var(--orange); font-size: 22px; font-weight: 300; }
+details[open] summary::after { content: '−'; }
+.rule-content {
+  padding: 0 0 24px;
+  color: var(--brown-mid);
+  font-size: 15px;
+}
+.rule-content ul { padding-left: 20px; }
+.rule-content li { margin-bottom: 8px; }
+
+/* ── STICKY NAV ── */
+.sticky-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  background: rgba(253,246,240,0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--brown-light);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+.sticky-nav.visible { transform: translateY(0); }
+.sticky-nav a {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--brown-mid);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 18px;
+  line-height: 50px;
+  white-space: nowrap;
+  transition: color 0.2s;
+  border-right: 1px solid var(--brown-light);
+}
+.sticky-nav a:last-child { border-right: none; }
+.sticky-nav a:hover { color: var(--orange); }
+@media (max-width: 680px) {
+  .sticky-nav { gap: 0; overflow-x: auto; justify-content: flex-start; padding: 0 8px; }
+  .sticky-nav a { font-size: 10px; padding: 0 12px; letter-spacing: 1px; }
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--brown-dark);
+  color: var(--brown-light);
+  font-size: 13px;
+}
+footer .script {
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  color: var(--cream);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ── MARKET COMPARE ── */
+.market-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+@media (max-width: 680px) {
+  .market-compare { grid-template-columns: 1fr; }
+}
+
+/* ── AVAILABILITY TABLE ── */
+.avail-wrap { overflow-x: auto; margin: 32px 0; }
+.avail-table { min-width: 460px; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 16px rgba(74,55,40,0.07); background: #fff; width: 100%; }
+.avail-row { display: grid; grid-template-columns: 1.6fr 1fr 1fr; align-items: center; }
+.avail-head { background: var(--brown-dark); }
+.avail-head > div { padding: 14px 20px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--brown-light); font-weight: 500; }
+.avail-head small { font-size: 10px; color: rgba(217,197,178,0.6); letter-spacing: 0; display: block; margin-top: 3px; text-transform: none; }
+.avail-row:not(.avail-head) > div { padding: 16px 20px; border-bottom: 1px solid var(--sand); }
+.avail-row:last-child > div { border-bottom: none; }
+.avail-period { font-size: 14.5px; color: var(--brown-dark); font-weight: 500; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 680px) {
+  section { padding: 48px 0; }
+  .hero { min-height: 88vh; }
+  .cta-section { padding: 64px 20px; }
+  .stats-bar { gap: 16px; flex-wrap: wrap; padding: 24px 20px; }
+  .stat { width: calc(50% - 8px); }
+  .rooms, .flow-grid, .persona-grid, .appeal-grid, .plan-grid { grid-template-columns: 1fr; }
+  .time-slot { flex-direction: column; gap: 8px; }
+  .time-label { width: auto; }
+  .steps { gap: 24px; flex-direction: column; align-items: center; }
+  .step { max-width: 100%; }
+  .btn { display: block; width: 100%; text-align: center; margin: 8px 0; }
+  .btn-ghost { margin-left: 0; }
+  summary { padding: 24px 0; }
+  .include-grid { grid-template-columns: 1fr !important; }
+  .price-table-wrap::before {
+    content: '← 左右滑動查看完整費用 →';
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--brown-mid);
+    padding-bottom: 8px;
+  }
+  .avail-wrap::before {
+    content: '← 左右滑動查看床位狀況 →';
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--brown-mid);
+    padding-bottom: 8px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav" id="stickyNav">
+  <a href="#who">發起人</a>
+  <a href="#space">空間</a>
+  <a href="#experience">體驗</a>
+  <a href="#flow">行程</a>
+  <a href="#pricing">方案 & 席次</a>
+  <a href="#rules">須知</a>
+  <a href="#cta">報名</a>
+  <a href="about.html" style="color:var(--orange);">關於候鳥誌</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="hero-carousel" id="heroCarousel">
+    <img class="hero-slide active" src="img/hero-1.jpg" alt="東糖官邸">
+    <img class="hero-slide" src="img/hero-2.jpg" alt="東糖官邸空間">
+    <img class="hero-slide" src="img/hero-3.jpg" alt="生活空間">
+    <img class="hero-slide" src="img/hero-4.jpg" alt="夜晚的東糖官邸">
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">候鳥誌 No.1 ｜ The Flyway Retreat</span>
+    <h1>換個地方，選生活</h1>
+    <p class="hero-sub">台東・東糖官邸 &nbsp;·&nbsp; 07.04–12 &nbsp;·&nbsp; 夏 &nbsp;·&nbsp; 邀請制</p>
+    <p class="hero-quote">讓我們像風一樣，候鳥一般，<br>在舒服的時空裡流動，也讓心流動。</p>
+  </div>
+</div>
+
+<!-- QUICK STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-label">時間</div>
+    <div class="stat-value">07/04–12 · 9天8夜</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">地點</div>
+    <div class="stat-value">台東・東糖官邸</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">規模</div>
+    <div class="stat-value">6–8 人精選</div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">方式</div>
+    <div class="stat-value">策展型 Retreat</div>
+  </div>
+</div>
+
+<!-- WHO I AM -->
+<section id="who">
+  <div class="container">
+    <div class="section-label">發起人</div>
+    <h2>為什麼我<br>發起這件事</h2>
+    <p>我叫淑君，大家叫我 Anita。台南人，目前在台北流轉。工作混合遠端，加上和伴侶「每個月不同城市碰面」的生活模式，讓我長期實驗著「換個地方選生活」這件事。</p>
+    <p>這幾年帶著電腦在清邁、峇里島深度居留，也在台灣各地游走——北埔、恆春、台東……一直在想，怎麼把在清邁、峇里島看到的那種美好帶回台灣：把工作、生活、地方融在一起的 Coliving 樣貌，結合我熱愛的地方創生與永續旅行。台灣有太多有靈魂的角落值得被看見，東糖官邸是第一次把這個想法聚焦成 Retreat 的實驗——找一群頻率對的人，一起試試台灣版本長什麼樣子 🌿</p>
+    <p>老實說，這次 Retreat 也是我自己需要的。需要找一群做著困難但有意義的事的人，在同一個屋簷下待幾天，聊那些工作裡說不出口的事，也聊彼此的下一步。這次不會完美，但我們包容彼此的不完美，一起探索。</p>
+    <p>也想藉這次機會，試著回答一個問題：當一群有能量的靈魂聚在一起——能不能真的為地方、為環境、也為彼此帶來正向的影響力？這個問題清邁、峇里島給了我一些線索，但台灣版的答案，得自己跑出來 🌱</p>
+    <p style="font-size:14px; margin-top:8px;">🌏 工作旅居：清邁 (1m)・峇里島+爪哇 (1m) ｜ 足跡：馬來西亞・印度・墨西哥・日本愛媛<br>🏝 台灣深蹲：北埔・恆春・台東 各一週，更多城市快閃</p>
+    <div class="callout callout-sand" style="margin-top: 28px;">
+      <p style="font-size:14.5px; margin:0;">💡 <strong>甜甜價是有意為之的設計。</strong> 原本官邸定價是平日 $6,000 ／假日 $8,000（均攤約 $1,000–1,400 /人・晚）。老師支持這個實驗，給了我們更好的價格。但真正的邏輯是這樣的：<strong>讓你待得夠久，連結才能真正發生。</strong> 快閃兩天，關係停在表面；住夠久，才能從「認識」變成「真的了解這個人」。這個費用，是讓深度關係得以發生的入場券 🌿</p>
+    </div>
+    <div class="quote-block">
+      <p>一個人的旅行是放鬆，但一群有能量的靈魂聚在一起，才是改變的開始。</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SPACE -->
+<section id="space">
+  <div class="container">
+    <div class="section-label">空間</div>
+    <h2>關於東糖官邸</h2>
+    <p>這不是飯店，是劭老師的家。</p>
+    <p>這棟 70 年老屋，曾是台東糖廠廠長的住所，座落在台東糖廠文創園區旁，綠蔭圍繞、老樹成蔭。劭老師多年來實踐「二地居」——在台北工作生活，在台東築夢。東糖官邸是他一磚一瓦打造的退休基地，不是為了營利，而是相信一個有靈魂的空間，應該讓人好好生活。</p>
+    <div class="callout callout-sand" style="margin: 24px 0;">
+      <p style="margin:0; font-size:15px; color:var(--brown-dark); line-height:2;">
+        我們沒有電視，但有家庭劇院 🎬<br>
+        我們沒有卡拉OK，但有黑膠唱片 🎵<br>
+        我們沒有麻將，但有鞦韆與草地 🌿
+      </p>
+    </div>
+    <p>知道我想把清邁、峇里島的 Coliving 精神帶回台灣，老師很支持，也給了我們更甜的價格 🙏 整棟包棟，只有我們，自由度高——但這是自助式的，沒有管家每天進來打掃。</p>
+    <p style="font-size:14px;"><a href="https://www.airbnb.com.tw/rooms/1468650916902117990" target="_blank" style="color:var(--orange); text-decoration:none;">📷 先看 Airbnb 照片 →</a></p>
+  </div>
+  <div class="container-wide">
+    <img src="img/space-banner.jpg" alt="東糖官邸空間" style="width:100%;aspect-ratio:21/9;object-fit:cover;display:block;border-radius:0;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="photo-placeholder" style="aspect-ratio:21/9; border-radius:0; display:none;">
+      <span class="icon">📷</span>
+      <span>建議：官邸正面・庭院・客廳大空間・森林包圍感</span>
+    </div>
+  </div>
+  <div class="container">
+    <div class="rooms">
+      <div class="room-card">
+        <img src="img/room-valley.jpg" alt="縱谷套房" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="room-photo" style="display:none;">📷 縱谷套房</div>
+        <div class="room-info">
+          <div class="room-name">｜縱谷｜ 雙人套房</div>
+          <p class="room-desc">一大床・獨立衛浴・書桌椅・休閒椅<br>黃綠色調，呼應花東縱谷的青翠與寧靜<br>浴室保留懷舊馬賽克浴缸 🛁</p>
+        </div>
+      </div>
+      <div class="room-card">
+        <img src="img/room-coast.jpg" alt="海岸雅房" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="room-photo" style="display:none;">📷 海岸雅房</div>
+        <div class="room-info">
+          <div class="room-name">｜海岸｜ 雙床雅房</div>
+          <p class="room-desc">兩張單人床（可加至4床）・共用衛浴・書桌椅・閱讀燈<br>藍白色系，呼應東海岸的清新與開闊</p>
+        </div>
+      </div>
+      <div class="room-card">
+        <img src="img/room-common.jpg" alt="公共空間" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="room-photo" style="display:none;">📷 廚房・公共空間</div>
+        <div class="room-info">
+          <div class="room-name">公共空間</div>
+          <p class="room-desc">客廳・廚房（全套設備）・餐廳・150 坪庭院<br>家庭劇院・黑膠唱片・鞦韆・草地・烤肉架</p>
+        </div>
+      </div>
+    </div>
+    <div class="include-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <div class="callout callout-green">
+        <div class="callout-title">✅ 包含</div>
+        <ul>
+          <li>200 坪官邸空間全包・150 坪前後庭院</li>
+          <li>高速 WiFi・適合辦公的書桌椅</li>
+          <li>廚房全套設備・調味料・咖啡豆・茶包・雞蛋・米</li>
+          <li>家庭劇院・黑膠唱片・鞦韆・烤肉架</li>
+          <li>腳踏車 4 台 + 附近 YouBike</li>
+          <li>洗烘衣機・水電瓦斯</li>
+          <li>浴巾・毛巾・沐浴乳・洗髮精</li>
+        </ul>
+      </div>
+      <div class="callout callout-sand">
+        <div class="callout-title">❌ 不含</div>
+        <ul>
+          <li>個人來回交通</li>
+          <li>三餐外食費用</li>
+          <li>私人行程開銷</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- APPEAL: 三種體驗 -->
+<section class="appeal-section" id="experience">
+  <div class="container">
+    <div class="section-label">為什麼來</div>
+    <h2>三種進入<br>這裡的方式</h2>
+    <p>帶著不同狀態來都可以。重要的是，你願意真實地在這裡——不表演，不強迫，開放地探索。</p>
+    <div class="appeal-grid">
+      <div class="appeal-card">
+        <div class="appeal-tag">打開感官</div>
+        <h3>🌿 換個地方，<br>讓慣性鬆動</h3>
+        <p>換個陌生的地方，習慣的感官會重新被打開。在庭院發呆、騎車到不認識的巷子找早餐——讓身體先放鬆，靈感和連結就跟著來了。</p>
+        <span class="plan-hint">→ 適合 B 全心投入・C 專注共創</span>
+      </div>
+      <div class="appeal-card">
+        <div class="appeal-tag">真的在一起</div>
+        <h3>🤝 Coliving<br>才是重點</h3>
+        <p>共同工作共同生活，一起煮飯、一起聊到很晚、一起尷尬然後打破尷尬<br>——淺淺的認識，在這幾天變成真的了解彼此。</p>
+        <span class="plan-hint">→ 適合 C 專注共創・B 全心投入</span>
+      </div>
+      <div class="appeal-card">
+        <div class="appeal-tag">帶走一個連結</div>
+        <h3>🌊 就算只有<br>週末</h3>
+        <p>就算只有兩天，換個不熟悉的地方，遇見一群頻率對的人——帶走的不只是充電，是一個真實的連結，和回去繼續的能量。</p>
+        <span class="plan-hint">→ 適合 E 慢食節快閃・F 週末深度遊</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RETREAT PHILOSOPHY -->
+<div style="background:var(--sand); padding:64px 24px 60px; text-align:center;">
+  <div style="max-width:520px; margin:0 auto;">
+    <p style="font-family:'Noto Serif TC',serif; font-weight:300; font-size:18px; line-height:1.8; color:var(--brown-dark); letter-spacing:0.05em; margin-bottom:28px;">
+      在 Retreat 中遇見，讓靈魂重新調頻。
+    </p>
+    <p style="font-family:'Noto Serif TC',serif; font-weight:300; font-size:15px; line-height:2.4; color:var(--brown-mid); letter-spacing:0.04em;">
+      偶爾按下暫停鍵——<br>
+      停下來看看自己，或好好享受當下；<br>
+      留時間給那些重要不緊急的事，<br>
+      偶爾享受靈感、交流、相伴，<br>
+      偶爾享受沉默，一個人的時光。
+    </p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CO-CREATE: 共創時光 -->
+<section class="cocreate-section">
+  <div class="container">
+    <div class="section-label">一起共創</div>
+    <h2>我們如何<br>共創時光</h2>
+    <p>沒有強制行程，但這些都是歡迎發生的事。有人想帶就帶，沒人帶就各自舒服地做自己的事。</p>
+    <div class="time-slots">
+      <div class="time-slot">
+        <div class="time-label">早晨</div>
+        <div class="time-activities">
+          <span class="activity-chip">☀️ 共同瑜伽・冥想練習</span>
+          <span class="activity-chip">☕ 泡杯咖啡</span>
+          <span class="activity-chip">🍵 喝杯茶</span>
+          <span class="activity-chip">🌳 在庭院發呆</span>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time-label">中午</div>
+        <div class="time-activities">
+          <span class="activity-chip">🍳 共同約煮飯</span>
+          <span class="activity-chip">🚲 騎車找小農市集</span>
+          <span class="activity-chip">🌾 河堤覓食</span>
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time-label">晚間</div>
+        <div class="time-activities">
+          <span class="activity-chip">🧘 約練瑜伽</span>
+          <span class="activity-chip">🌊 騎車去海邊</span>
+          <span class="activity-chip">🎬 投影幕電影</span>
+          <span class="activity-chip">🌙 深度聊天</span>
+
+        </div>
+      </div>
+      <div class="time-slot">
+        <div class="time-label">各種發起</div>
+        <div class="time-activities">
+          <span class="activity-chip">🎲 桌遊</span>
+          <span class="activity-chip">📅 月終復盤</span>
+          <span class="activity-chip">✏️ 共同規劃下一年</span>
+          <span class="activity-chip">🎨 畫畫素描</span>
+          <span class="activity-chip">🌴 假日揪團去玩</span>
+          <span class="activity-chip">📚 讀書分享會</span>
+        </div>
+      </div>
+    </div>
+    <div class="cocreate-note">
+      🌿 以上都是歡迎的，不強迫也不安排。加入之後我們再一起共創囉！
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- DAILY FLOW -->
+<section id="flow">
+  <div class="container">
+    <div class="section-label">行程節奏</div>
+    <h2>你的時間<br>長什麼樣？</h2>
+    <p>不是行程安排，是生活的節奏。你可以跟著，也可以自己定義版本。</p>
+  </div>
+  <div class="container-wide">
+    <div class="flow-grid">
+      <div class="flow-card">
+        <img class="flow-photo" src="img/flow-festival.jpg" alt="台東慢食節">
+        <div class="flow-date">07/04–05</div>
+        <h3>🎈 週末慶典</h3>
+        <p>一起去台東慢食節玩、把胃填飽！緩緩把心與行李安放在這棟歷史建築，準備迎接工作週 🌿</p>
+        <p style="font-size:13.5px;">（去年活動超有感，今年擴編團隊更精彩——妳來就對了！）</p>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="img/flow-work.jpg" alt="在官邸工作">
+        <div class="flow-date">07/06–10</div>
+        <h3>💻 工作週</h3>
+        <p>早上泡咖啡、在庭院做瑜珈，在森林環繞的官邸裡好好辦公 ☀️</p>
+        <p style="font-size:13.5px;">☕ 午餐時光：附近採買小農蔬果一起共煮（米・蛋餅皮・調味料全備，廚餘機也有 XD），或騎車去河堤覓食 🚲</p>
+        <p style="font-size:13.5px;">🌙 下班生活：騎車去海邊溜達、上瑜珈課，或窩在客廳用投影幕看場電影 🎬 也邀請各方高手夥伴自由發起～～</p>
+      </div>
+      <div class="flow-card">
+        <img class="flow-photo" src="img/flow-travel.jpg" alt="台東旅行玩耍">
+        <div class="flow-date">07/11–12</div>
+        <h3>🚲 旅行玩耍</h3>
+        <p>活水湖跟魚游泳、找充滿故事的無菜單早餐阿姨聊天，或隨心晃到附近城市 🌊</p>
+        <p style="font-size:13.5px;">（阿姨超客製化！純素・無麩質都沒問題，麵包全自製、食材看當天小農新鮮提供唷 ✨）</p>
+        <p style="font-size:13.5px;">可以跟著我們，也可以自由定義妳的體驗版本——或揪 coliving 的朋友們一起去哪玩 😄</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="section-label">方案 & 席次</div>
+    <h2>選你的時間</h2>
+    <p>四段時間，自選入場。按實際夜數計費——看清哪段還有空床，盡早鎖位。</p>
+
+    <!-- 時間軸 -->
+    <div style="margin:32px 0 24px;">
+      <div style="display:grid; grid-template-columns:1fr 5fr 2fr; margin-bottom:6px; text-align:center;">
+        <div style="font-size:11px; color:var(--brown-mid); letter-spacing:0.04em;">7/04–05</div>
+        <div style="font-size:11px; color:var(--brown-mid); letter-spacing:0.04em;">7/05–10</div>
+        <div style="font-size:11px; color:var(--brown-mid); letter-spacing:0.04em;">7/10–12</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 5fr 2fr; gap:4px; margin-bottom:4px;">
+        <div style="background:var(--tint-green); border-radius:8px; padding:9px 4px; text-align:center; font-size:12px; color:#2d5a30; font-weight:500; white-space:nowrap;">🌿 開幕</div>
+        <div style="background:var(--tint-orange); border-radius:8px; padding:9px 6px; text-align:center; font-size:12px; color:#7a3a12; font-weight:500;">💻 工作週</div>
+        <div style="background:var(--tint-green); border-radius:8px; padding:9px 4px; text-align:center; font-size:12px; color:#2d5a30; font-weight:500; white-space:nowrap;">🌊 收尾</div>
+      </div>
+      <div style="background:rgba(232,132,90,0.1); border:1px dashed var(--orange); border-radius:8px; padding:9px 16px; text-align:center; font-size:12px; color:var(--brown-mid);">✨ 全心投入款 &nbsp;·&nbsp; 07/04–12 · 8 夜</div>
+    </div>
+
+    <!-- 計費方式 -->
+    <p style="font-size:13px; color:var(--brown-mid); text-align:center; margin:0 0 20px; line-height:2.2;">
+      縱谷套房 <strong style="color:var(--brown-dark);">NT$850 /人・晚</strong> &nbsp;·&nbsp; 海岸背包 <strong style="color:var(--brown-dark);">NT$750 /人・晚</strong><br>
+      <span style="color:var(--orange); font-size:12px;">✨ 海岸背包 4 人滿房・住滿 5 晚 → NT$600 /人・晚</span>
+    </p>
+    <p style="font-size:12.5px; color:var(--brown-mid); text-align:center; margin:-8px 0 24px; line-height:1.9;">同類型清邁・峇里島 Retreat 行情 $7,000–15,000 / 5 天，且部分不含住宿。<br>老師支持這個實驗，讓我們可以專注在讓連結真正發生的事。</p>
+
+    <!-- 方案卡 2×2 -->
+    <div class="plan-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px;">
+
+      <!-- 🌿 慢食節開幕 -->
+      <div style="background:#fff; border:1px solid var(--brown-light); border-radius:14px; overflow:hidden;">
+        <div style="background:var(--tint-green); padding:14px 18px;">
+          <div style="font-size:15px; font-family:'Noto Serif TC',serif; font-weight:300; color:#2d5a30;">🌿 慢食節開幕</div>
+          <div style="font-size:11.5px; color:#3d6b40; margin-top:3px; letter-spacing:0.04em;">07/04–05 &nbsp;·&nbsp; 1 夜</div>
+        </div>
+        <div style="padding:14px 18px; display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:13px; color:var(--brown-dark); flex:1;">縱谷套房</span>
+            <span class="seat-badge badge-open" style="font-size:11px;">✅ 可入住</span>
+            <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-dark); flex-shrink:0; margin-left:8px;">$850</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:13px; color:var(--brown-dark); flex:1;">海岸背包</span>
+            <span class="seat-badge badge-open" style="font-size:11px;">✅ 剩 2 床</span>
+            <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-dark); flex-shrink:0; margin-left:8px;">$750</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 💻 工作週 -->
+      <div style="background:#fff; border:1px solid var(--brown-light); border-radius:14px; overflow:hidden;">
+        <div style="background:var(--tint-orange); padding:14px 18px;">
+          <div style="font-size:15px; font-family:'Noto Serif TC',serif; font-weight:300; color:#7a3a12;">💻 工作週</div>
+          <div style="font-size:11.5px; color:#8b4a20; margin-top:3px; letter-spacing:0.04em;">07/05–10 &nbsp;·&nbsp; 5 夜</div>
+        </div>
+        <div style="padding:14px 18px; display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:8px; opacity:0.38;">
+            <span style="font-size:13px; color:var(--brown-dark); flex:1;">縱谷套房</span>
+            <span class="seat-badge badge-full" style="font-size:11px;">已滿</span>
+            <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-mid); text-decoration:line-through; flex-shrink:0; margin-left:8px;">$4,250</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:13px; color:var(--brown-dark); flex:1;">海岸背包</span>
+            <span class="seat-badge badge-limited" style="font-size:11px;">⚠️ 剩 1 床</span>
+            <div style="flex-shrink:0; margin-left:8px; text-align:right;">
+              <div style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-dark);">$3,750 <span style="font-size:11px; color:var(--brown-mid);">2–3人</span></div>
+              <div style="font-size:13px; font-family:'Cormorant Garamond',serif; color:var(--orange);">$3,000 <span style="font-size:10.5px; font-family:'DM Sans',sans-serif; color:var(--brown-mid);">滿房4人</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 🌊 收尾週末 -->
+      <div style="background:#fff; border:1px solid var(--brown-light); border-radius:14px; overflow:hidden;">
+        <div style="background:var(--tint-green); padding:14px 18px;">
+          <div style="font-size:15px; font-family:'Noto Serif TC',serif; font-weight:300; color:#2d5a30;">🌊 收尾週末</div>
+          <div style="font-size:11.5px; color:#3d6b40; margin-top:3px; letter-spacing:0.04em;">07/10–12 &nbsp;·&nbsp; 2 夜</div>
+        </div>
+        <div style="padding:14px 18px; display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:8px; opacity:0.38;">
+            <span style="font-size:13px; color:var(--brown-dark); flex:1;">縱谷套房</span>
+            <span class="seat-badge badge-full" style="font-size:11px;">已滿</span>
+            <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-mid); text-decoration:line-through; flex-shrink:0; margin-left:8px;">$1,700</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:13px; color:var(--brown-dark); flex:1;">海岸背包</span>
+            <span class="seat-badge badge-open" style="font-size:11px;">✅ 剩 2–4 床</span>
+            <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-dark); flex-shrink:0; margin-left:8px;">$1,500</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ✨ 全心投入款 -->
+      <div style="background:#fff; border:1.5px solid var(--orange); border-radius:14px; overflow:hidden;">
+        <div style="background:var(--orange); padding:14px 18px;">
+          <div style="font-size:15px; font-family:'Noto Serif TC',serif; font-weight:300; color:#fff;">✨ 全心投入款</div>
+          <div style="font-size:11.5px; color:rgba(255,255,255,0.8); margin-top:3px; letter-spacing:0.04em;">07/04–12 &nbsp;·&nbsp; 8 夜 &nbsp;·&nbsp; 最完整體驗</div>
+        </div>
+        <div style="padding:14px 18px; display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:8px; opacity:0.38;">
+            <span style="font-size:13px; color:var(--brown-dark); flex:1;">縱谷套房</span>
+            <span class="seat-badge badge-full" style="font-size:11px;">已滿</span>
+            <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-mid); text-decoration:line-through; flex-shrink:0; margin-left:8px;">$6,800</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:13px; color:var(--brown-dark); flex:1;">海岸背包</span>
+            <span class="seat-badge badge-limited" style="font-size:11px;">⚠️ 剩 1 床</span>
+            <div style="flex-shrink:0; margin-left:8px; text-align:right;">
+              <div style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-dark);">$6,000 <span style="font-size:11px; color:var(--brown-mid);">2–3人</span></div>
+              <div style="font-size:13px; font-family:'Cormorant Garamond',serif; color:var(--orange);">$4,800 <span style="font-size:10.5px; font-family:'DM Sans',sans-serif; color:var(--brown-mid);">滿房4人</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p style="font-size:12.5px; color:var(--brown-mid); margin:0 0 28px; line-height:1.9;">💡 縱谷套房獨立衛浴更私密；海岸背包可調上下舖，性別混住，4人滿房優惠限住滿5晚。<br>想跨段組合（如工作週＋收尾週末）？按實際夜數計，私訊 Anita 確認席次。</p>
+
+    <div class="subsidy-box">
+      <span class="subsidy-icon">🎁</span>
+      <div class="subsidy-text">
+        <h4>台東一遊未盡・縣政府住房補助（最高省 $2,500）</h4>
+        <p>東糖官邸為合法登記民宿，適用「住滿 5 晚」優惠方案，補助 NT$2,500 /房。</p>
+        <p>因為是包棟，補助名額只有 2 個。目前其中一個已由「全心投入 9 天 8 夜」的有趣靈魂夫妻檔確認 🌟 另一名額，優先開放給住 5 天以上且優先選縱谷套房、或住宿天數最長的夥伴。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PERSONAS -->
+<section>
+  <div class="container">
+    <div class="section-label">找什麼人</div>
+    <h2>🤝 尋找想共創<br>「有趣靈魂」的妳/你</h2>
+    <p>這裡是個實驗室 💥 能注入不同的靈魂，碰撞出不同的火花——有一些化學效應 🧪</p>
+    <p>我經營的是一個社群，人的篩選很重要。不是職業、不是頭銜，是你這個人的頻率——</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 20px;">
+      <span class="activity-chip">💚 善良真誠</span>
+      <span class="activity-chip">🌊 開放包容</span>
+      <span class="activity-chip">🌿 接納不完美</span>
+      <span class="activity-chip">👂 傾聽理解</span>
+      <span class="activity-chip">✨ 願意體驗</span>
+      <span class="activity-chip">🤝 尊重差異</span>
+    </div>
+    <p><strong>最理想的你：</strong>正在用自己的方式，做著困難但有意義的事——偶爾很累，需要充電，也需要找到同類。</p>
+    <p>創業者・自由接案者・遠端工作者・內容創作者——有移動的自由，有使命感想發揮正向影響力，願意和不同靈魂在同一個屋簷下真實共處幾天。大家都是玩家，帶來靈感、體驗、樂趣，甚至合作與突破口 🌿</p>
+  </div>
+  <div class="container-wide">
+    <div class="persona-grid">
+      <div class="persona-card">
+        <span class="persona-emoji">🔋</span>
+        <h3>滿血的你</h3>
+        <p>狀態穩定、有滿滿點子想輸出，想找個對的地方讓創造力落地。你的能量將成為這個空間的錨點。</p>
+      </div>
+      <div class="persona-card">
+        <span class="persona-emoji">🍃</span>
+        <h3>需要修復的你</h3>
+        <p>剛結束一個大案，或只是想躲進森林「登出」世界一陣子。這裡不要求妳表現，只提供最安靜的守護。</p>
+      </div>
+      <div class="persona-card">
+        <span class="persona-emoji">🌊</span>
+        <h3>在轉換期的你</h3>
+        <p>正在想人生下一步，需要與不同領域的人碰撞火花，或需要一段空白來聽聽內心的聲音。</p>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: 48px;">
+    <div class="quote-block">
+      <p>這不只是個商業活動。大家的參與，就是讓這裡成為第一個實驗場，一起注入工作精神、一起奮鬥。</p>
+      <p>過程中也許有不完美，我們彼此體諒、一起貢獻價值。🙏</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOUSE RULES -->
+<section class="rules-section" id="rules">
+  <div class="container">
+    <div class="section-label">加入前先知道</div>
+    <h2>報名前請先<br>讀這幾件事</h2>
+    <p>這不是精品飯店，是一棟有靈魂的老屋。在按下報名之前，這些事先知道，才能確認我們彼此是對的人 🌿</p>
+    <div class="callout callout-orange" style="margin-bottom:32px;">
+      <p style="margin:0; color:var(--brown-dark); font-size:15px;">🌟 <strong>核心期待：我們是共創者，不是客人。</strong><br>我是主揪人，但不是服務者。大家在這裡是平等的，都歡迎發起活動、帶來能量、一起創造這個實驗。來了請把自己當是共同主人翁 🙌</p>
+    </div>
+
+    <details open>
+      <summary>🏠 這是一個家，不是飯店</summary>
+      <div class="rule-content">
+        東糖官邸是劭老師的私人住所，不是商業飯店。這裡的空間有溫度、有故事，但也意味著：<br><br>
+        <ul>
+          <li>沒有每天進房打掃的管家服務</li>
+          <li>床單每床約 2–3 套，自助更換</li>
+          <li>廚房、公共空間是大家共用的，用完自己整理</li>
+          <li>生活節奏是自助式的——需要有自主性的人</li>
+        </ul>
+        <br>如果妳期待的是飯店式服務，這裡可能不適合妳；如果妳喜歡「住在朋友家」那種感覺，那就對了 ✨
+      </div>
+    </details>
+
+    <details>
+      <summary>🛏 衛浴共用這件事</summary>
+      <div class="rule-content">
+        縱谷套房有獨立衛浴，最私密 ✅<br><br>
+        海岸背包房 + 我跟阿泰（南迴房），共用同一間衛浴——最多 4–6 個人共用一間廁所，請大家多多擔待 😅<br><br>
+        如果妳對衛浴這件事很在意，強烈建議選縱谷套房！雖然貴一點，但獨立衛浴真的差很多 XD
+      </div>
+    </details>
+
+    <details>
+      <summary>🛏 關於房間與私人空間</summary>
+      <div class="rule-content">
+        海岸背包房可住 2–4 人，床位可調整為上下舖，性別混住。<br><br>
+        房間不上鎖（這是一個互信的空間），但個人物品請自行收好。<br><br>
+        介意與陌生人共室的話，建議選縱谷套房（雙人，可與同伴一起入住）。
+      </div>
+    </details>
+
+    <details>
+      <summary>⏰ 到・走的時間</summary>
+      <div class="rule-content">
+        7/4（六）下午 3 點後隨時可以到，大家陸續進門、一起去慢食節玩～<br><br>
+        7/12（日）上午 11 點前退房，行李可以繼續放，吃完早餐再走也沒關係 XD<br><br>
+        大門密碼在入住前一天傳給妳，不需要在特定時間等人開門。
+      </div>
+    </details>
+
+    <details>
+      <summary>🍳 廚房・生活備品</summary>
+      <div class="rule-content">
+        <ul>
+          <li>官邸提供：雞蛋・米・蛋餅皮・調味料・咖啡豆・茶包（還有廚餘機 XD）</li>
+          <li>自行採買：巷口有蜜鄰超市，或騎車去農夫市集・河堤找美食</li>
+          <li>用完的廚具請洗好放回去，讓大家都舒服</li>
+          <li>垃圾依台東分類規定打包，丟到集中場</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>🌿 環保備品・自備清單</summary>
+      <div class="rule-content">
+        <ul>
+          <li>官邸提供：浴巾・毛巾・沐浴乳・洗髮精</li>
+          <li>請自備：牙刷・牙膏・棉花棒等一次性用品（環保考量）</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>🚲 交通・代步</summary>
+      <div class="rule-content">
+        <ul>
+          <li>官邸腳踏車 4 台（大小不一，先搶先用）</li>
+          <li>YouBike：步行 5 分鐘</li>
+          <li>台東火車站 → 官邸：計程車約 10 分鐘（約 $150–200）</li>
+          <li>台東對腳踏車很友善，大部分景點都可以騎到 🚲</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>🔒 隱私・安全・外訪客</summary>
+      <div class="rule-content">
+        室內監視器會關閉以維護隱私，室外維持運作保障安全。管家不會在包棟期間進入官邸。<br><br>
+        東糖官邸包棟期間僅開放給入住房客。如果有朋友順路、也想一起進入空間或參與活動，可以在群組裡跟大家說聲，需酌收場地清潔費 50 元/人（幫房東收的，我沒有賺走哦 XD）。<br>但如果是在空間外的玩耍、一起去哪兒——那當然絕對沒問題，超歡迎！~~
+      </div>
+    </details>
+
+    <details>
+      <summary>📋 取消訂房・退款政策</summary>
+      <div class="rule-content">
+        訂位確認後，如需取消，訂金退還依行政院消費者保護處「個別旅客訂房定型化契約」辦理。<br><br>
+        如需調整入住日期或方案，歡迎盡早私訊 Anita 確認，我們一起想辦法 🌿
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <p class="cta-eyebrow">如果妳感覺被召喚了</p>
+    <h2>別猶豫，<br>台東見 🌿</h2>
+    <p style="color:var(--brown-light); max-width:480px; margin:0 auto 48px; font-size:15.5px; line-height:1.9;">讀完上面那些，還是想來的話——代表妳就是我在找的人。三步搞定，不複雜。</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <p>填靈魂航班登記表<br><span style="font-size:13px; opacity:0.7;">5 分鐘・寫你的日期・需求・有沒有同行</span></p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <p>Anita 3 天內私訊確認<br><span style="font-size:13px; opacity:0.7;">方案・房型・總費用・匯款帳號</span></p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <p>3 日內匯 50% 訂金<br><span style="font-size:13px; opacity:0.7;">截圖回傳 → 席位鎖定 → 加 LINE 群 🎉</span></p>
+      </div>
+    </div>
+    <a href="https://anitalu.notion.site/32e2d9101d7f80d098e8e2e0456407cc" class="btn">填登記表 ✈️</a>
+    <a href="https://www.instagram.com/hi_anitalulu" class="btn btn-ghost">IG 私訊 Anita</a>
+    <p style="margin-top:36px; font-size:13px; color:rgba(217,197,178,0.6);">尾款在 7/4 入住當天付清・入住前一天傳大門密碼給妳</p>
+  </div>
+</section>
+
+<!-- VISION -->
+<section style="background: var(--brown-dark); padding: 72px 0; text-align:center;">
+  <div class="container">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:20px;">我們相信的事</p>
+    <h2 style="color:var(--cream); font-size:clamp(26px,4vw,40px); margin-bottom:24px; line-height:1.4;">在遇見中，<br>讓靈魂重新調頻。</h2>
+    <p style="color:var(--brown-light); font-size:16px; max-width:560px; margin:0 auto; line-height:1.9;">願離開後的大家，都能更有能量地回到戰場，<br>繼續那些困難卻極具影響力的事。</p>
+    <p style="font-family:'Noto Serif TC',serif; font-weight:300; color:rgba(253,246,240,0.75); font-size:18px; max-width:520px; margin:32px auto 0; line-height:2; letter-spacing:0.04em;">我們都在走出屬於自己的路，活出自己。<br>我們共同相識，而後各奔東西。</p>
+    <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(253,246,240,0.4); font-size:15px; max-width:480px; margin:8px auto 0; line-height:1.8;">We each walk our own flyway. We gather, we fly together for a while —<br>then part, carrying each other forward.</p>
+    <p style="font-family:'Cormorant Garamond',serif; font-style:italic; color:rgba(253,246,240,0.5); font-size:17px; max-width:500px; margin:28px auto 0; line-height:1.8;">我們不是隨風逐流，<br>而是因為知道什麼是更好的，<br>而選擇更好的環境以及人，並常在此中。</p>
+    <p style="color:rgba(217,197,178,0.6); font-size:13.5px; max-width:500px; margin:28px auto 0; line-height:1.9;">這是第一次實驗。我想知道，在台灣，這件事能不能自然發生。<br>如果成功了，下次我們去北埔、去新城、去更多有靈魂的地方——<br>一起繼續換個地方，選生活。</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="script">Hi! Anita Lu</span>
+  <p>換個地方，選生活 &nbsp;·&nbsp; 台東・東糖官邸 Retreat 2026</p>
+  <p style="margin-top:8px;">@hi_anitalulu &nbsp;·&nbsp; 有問題歡迎 IG 私訊</p>
+</footer>
+
+<script>
+(function(){
+  // Hero carousel
+  const slides = document.querySelectorAll('#heroCarousel .hero-slide');
+  if(slides.length) {
+    let cur = 0;
+    setInterval(function(){
+      slides[cur].classList.remove('active');
+      cur = (cur + 1) % slides.length;
+      slides[cur].classList.add('active');
+    }, 5000);
+  }
+
+  // Sticky nav
+  const nav = document.getElementById('stickyNav');
+  if(nav) {
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 120) nav.classList.add('visible');
+      else nav.classList.remove('visible');
+    }, { passive: true });
+  }
+
+  // Smooth scroll for nav anchors
+  document.querySelectorAll('.sticky-nav a').forEach(function(a){
+    a.addEventListener('click', function(e){
+      const href = a.getAttribute('href');
+      if(href && href.startsWith('#')){
+        e.preventDefault();
+        const el = document.querySelector(href);
+        if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
