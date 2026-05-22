@@ -449,6 +449,7 @@ tbody tr:hover { background: var(--cream); }
 .badge-open    { background: var(--tint-green); color: #3d6b40; }
 .badge-limited { background: var(--tint-orange); color: #8b4a20; }
 .badge-full    { background: var(--sand); color: var(--brown-mid); }
+.badge-urgent  { background: #fde8dc; color: #c44b1a; font-weight: 600; }
 
 /* ── PERSONAS ── */
 .persona-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-top: 40px; }
@@ -1054,7 +1055,7 @@ footer .script {
         <div style="padding:14px 18px; display:flex; flex-direction:column; gap:10px; flex:1;">
           <div style="display:flex; align-items:center; gap:8px;">
             <span style="font-size:13px; color:var(--brown-dark); flex:1;">縱谷套房 <span style="font-size:11px; color:var(--brown-mid);">2 人・一大床</span></span>
-            <span class="seat-badge badge-open" style="font-size:11px;">✅ 可入住</span>
+            <span class="seat-badge badge-urgent" style="font-size:11px;">🔥 僅剩1房</span>
             <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-dark); flex-shrink:0; margin-left:8px;">$1,700</span>
           </div>
           <div style="display:flex; align-items:center; gap:8px; opacity:0.38;">
@@ -1074,7 +1075,7 @@ footer .script {
         <div style="padding:14px 18px; display:flex; flex-direction:column; gap:10px; flex:1;">
           <div style="display:flex; align-items:center; gap:8px;">
             <span style="font-size:13px; color:var(--brown-dark); flex:1;">縱谷套房 <span style="font-size:11px; color:var(--brown-mid);">2 人・一大床</span></span>
-            <span class="seat-badge badge-limited" style="font-size:11px;">⚠️ 限 7/5 入住</span>
+            <span class="seat-badge badge-urgent" style="font-size:11px;">🔥 限 7/5 入住</span>
             <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-dark); flex-shrink:0; margin-left:8px;">$1,700</span>
           </div>
           <div style="display:flex; align-items:center; gap:8px; opacity:0.38;">
@@ -1097,10 +1098,10 @@ footer .script {
             <span class="seat-badge badge-limited" style="font-size:11px;">🔄 可釋出</span>
             <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-dark); flex-shrink:0; margin-left:8px;">$3,400</span>
           </div>
-          <div style="display:flex; align-items:center; gap:8px;">
+          <div style="display:flex; align-items:center; gap:8px; opacity:0.38;">
             <span style="font-size:13px; color:var(--brown-dark); flex:1;">海岸背包 <span style="font-size:11px; color:var(--brown-mid);">最多 4 床</span></span>
-            <span class="seat-badge badge-open" style="font-size:11px;">✅ 剩 2 床</span>
-            <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-dark); flex-shrink:0; margin-left:8px;">$1,500 /人</span>
+            <span class="seat-badge badge-full" style="font-size:11px;">已滿</span>
+            <span style="font-size:15px; font-family:'Cormorant Garamond',serif; color:var(--brown-mid); text-decoration:line-through; flex-shrink:0; margin-left:8px;">$1,500 /人</span>
           </div>
         </div>
       </div>
